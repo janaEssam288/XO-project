@@ -1,0 +1,93 @@
+
+import java.util.Scanner;
+ 
+public class Main
+{
+    public static void XO(){
+        	    Scanner enter=new Scanner(System.in);
+    String[][] arr=new String[3][3];
+    
+    for(int i=0;i<3;i++){
+     for(int j=0;j<3;j++) {  
+        arr[i][j]="''";
+    } } 
+      for(int i=0;i<3;i++){
+     for(int j=0;j<3;j++) {  
+        System.out.print(arr[i][j]);;
+    } System.out.println();} 
+    boolean flag=true;
+    while(flag){
+         
+    for(int i=0;i<3;i++){
+     for(int j=0;j<3;j++) {  
+        arr[i][j]="''";
+    } } 
+        boolean flag2=true;
+        int k=0;
+        while(flag2==true&&k++<9){
+    System.out.println("Enter row and colon you want to play in: ");
+    int row=enter.nextInt() ; 
+      int colon=enter.nextInt() ; 
+         if (k%2==0) {
+          arr[row-1] [colon-1]  ="X";
+         }
+          else{arr[row-1][colon-1]="O";}
+          for(int o=0;o<3;o++){
+              for(int p=0;p<3;p++){
+                 System.out.print(arr[o][p]+" ");
+              }
+              if(arr[o][0]=="X"&&arr[o][1]=="X"&&arr[o][2]=="X"){
+              System.out.println("X has won");
+              flag2=false;
+              break;}
+              else if(arr[o][0]=="O"&&arr[o][1]=="O"&&arr[o][2]=="O"){
+              System.out.println("O has won");
+              flag2=false;
+              break;}
+             
+                 System.out.println();
+             
+          }
+          for(int p=0;p<3;p++){
+              if(arr[0][p]=="X"&&arr[1][p]=="X"&&arr[2][p]=="X"||(arr[0][0]=="X"&&arr[1][1]=="X"&&arr[2][2]=="X"
+              ||(arr[0][2]=="X"&&arr[2][0]=="X"&&arr[1][1]=="X"))){
+              System.out.println("X has won");
+              flag2=false;
+              break;}
+              else if(arr[0][p]=="O"&&arr[1][p]=="O"&&arr[2][p]=="O"||
+              (arr[0][0]=="O"&&arr[1][1]=="O"&&arr[2][2]=="O")||(arr[0][2]=="X"&&arr[2][0]=="X"&&arr[1][1]=="X")){
+              System.out.println("O has won");
+              flag2=false;
+              break;}
+              
+          }
+            if(k==9){
+            System.out.println("no one has won");
+            flag2=false;
+            }
+        }
+          
+        
+        
+         System.out.println("if you want to play again enter yes /else enter no: ");         
+              String value=enter.next();
+              if (value.toLowerCase().equals("yes")){
+                  flag=true;
+              }
+              else if(value.toLowerCase().equals("no")){
+                 flag=false;
+                 break;
+              }
+              else{
+                  System.out.println("You entered wrong value");
+                  flag=false;
+                  break;
+              }
+          }}
+
+	public static void main(String[] args) {
+
+XO();
+	    
+	    
+	}}
